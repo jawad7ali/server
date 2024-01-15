@@ -10,7 +10,7 @@ const init = async () => {
     FOREIGN KEY (friendId) REFERENCES Users(id)
     );`);
     await db.run(`CREATE INDEX idx_userId ON Friends(userId);`);
-    await db.run(`CREATE INDEX idx_friendId ON Friends(friendId);    `);
+    await db.run(`CREATE INDEX idx_friendId ON Friends(friendId);`);
   const users = [];
   const names = ['foo', 'bar', 'baz'];
   for (i = 0; i < 27000; ++i) {

@@ -7,6 +7,9 @@ exports.searchUsers = async (req, res) => {
     const query = req.params.query;
 
     try {
+        if (!userId || !query) {
+            res.status(400).json({ success: false, message: "Missing required parameters." });
+        }
         const users = await User.search(userId, query);
         res.status(200).json({ success: true, users });
     } catch (error) {
